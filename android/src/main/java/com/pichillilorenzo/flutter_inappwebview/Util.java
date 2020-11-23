@@ -4,15 +4,12 @@ import android.content.res.AssetManager;
 import android.net.http.SslCertificate;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.IBinder;
 import android.os.Looper;
-import android.os.Parcelable;
 import android.util.Log;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.Serializable;
 import java.security.Key;
 import java.security.KeyStore;
 import java.security.PrivateKey;
@@ -25,13 +22,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
 
 import io.flutter.plugin.common.MethodChannel;
 import okhttp3.OkHttpClient;
@@ -163,7 +153,7 @@ public class Util {
     }
   }
 
-  public static OkHttpClient getUnsafeOkHttpClient() {
+  public static OkHttpClient getOkHttpClient() {
     try {
       OkHttpClient.Builder builder = new OkHttpClient.Builder();
       OkHttpClient okHttpClient = builder

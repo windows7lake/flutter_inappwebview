@@ -180,7 +180,7 @@ public class ContentBlockerHandler {
                             Response response = null;
 
                             try {
-                                response = Util.getUnsafeOkHttpClient().newCall(mRequest).execute();
+                                response = Util.getOkHttpClient().newCall(mRequest).execute();
                                 byte[] dataBytes = response.body().bytes();
                                 InputStream dataStream = new ByteArrayInputStream(dataBytes);
 
@@ -230,7 +230,7 @@ public class ContentBlockerHandler {
             Request mRequest = new Request.Builder().url(url).head().build();
             Response response = null;
             try {
-                response = Util.getUnsafeOkHttpClient().newCall(mRequest).execute();
+                response = Util.getOkHttpClient().newCall(mRequest).execute();
 
                 if (response.header("content-type") != null) {
                     String[] contentTypeSplitted = response.header("content-type").split(";");
